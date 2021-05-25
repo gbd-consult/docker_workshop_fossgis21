@@ -1,0 +1,21 @@
+version: "3.3" 
+services:
+    websuite:
+      image: gbdconsult/gws-server:7.0
+      ports:
+        - "3333:80"
+      volumes:
+        - "./data:/data"
+    postgis:
+      image: kartoza/postgis:13.0
+      ports:
+        - "54321:5432"
+      volumes:
+        - "./pg_data:/var/lib/postgres"
+      environment:
+        - POSTGRES_DB=docker
+        - POSTGRES_USER=docker
+        - POSTGRES_PASS=changeme123
+        - ALLOW_IP_RANGE=0.0.0.0/0
+        - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
+      restart: on-failure    

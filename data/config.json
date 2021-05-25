@@ -1,0 +1,205 @@
+{
+    "db": {
+        "providers" : [
+            {
+                "database": "docker",
+                "host": "postgis",
+                "password": "changeme123",
+                "user": "docker",
+                "type": "postgres",
+                "uid": "postgis"
+            }
+        ]
+    },
+    "access": [
+        {
+            "role": "all",
+            "type": "allow"
+        }
+    ],
+    "api": {
+        "actions": [
+            {
+                "type": "asset"
+            },
+            {
+                "type": "project"
+            },
+            {
+                "type": "map"
+            },
+            {
+                "type": "edit"
+            }
+        ]
+    },
+    "locales": [
+        "de_DE"
+    ],
+    "projects": [
+        {
+            "title": "Test Project",
+            "uid": "hello",
+            "map": {
+                "center": [
+                    346200,
+                    5678000
+                ],
+                "extent": [
+                    330000,
+                    5600000,
+                    370000,
+                    5700000
+                ],
+                "extentBuffer": 5000,
+                "zoom": {
+                    "scales": [1e3, 5e3, 1e4, 5e4, 1e5]
+                },
+                "layers": [
+                    {
+                        "title": "PostGIS",
+                        "type": "postgres",
+                        "db": "postgis",
+                        "table": {
+                            "name": "public.poipoi",
+                            "keyColumn": "id",
+                            "geometryColumn": "geom"
+                        },
+                        "edit": {
+                            "access": [
+                                {
+                                    "type": "allow",
+                                    "role": "all"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "title": "OpenStreetMap",
+                        "type": "tile",
+                        "display": "client",
+                        "url": "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    }
+                ]
+            }
+        }
+    ],
+    "web": {
+        "sites": [
+            {
+                "assets": {
+                    "dir": "/data"
+                },
+                "root": {
+                    "dir": "/data"
+                },
+                "rewrite": [
+                    {
+                        "match": "^/$",
+                        "target": "/index.html"
+                    },
+                    {
+                        "match": "^/project/([a-z][a-z0-9_-]*)(/@.*)?$",
+                        "target": "_?cmd=assetHttpGetPath&projectUid=$1&path=project.cx.html"
+                    },
+                    {
+                        "match": "^/asset/([a-z0-9_-]+)/(.+)$",
+                        "target": "_?cmd=assetHttpGetPath&projectUid=$1&path=$2"
+                    }
+                ]
+            }
+        ]
+    },
+    "client": {
+        "access": [
+            {
+                "role": "all",
+                "type": "allow"
+            }
+        ],
+        "options": {
+            "infobarVisible": true,
+            "sidebarActiveTab": "Sidebar.Layers",
+            "sidebarVisible": true,
+            "sidebarSize": 5,
+            "toolbarSize": 5
+        },
+        "elements": [
+            {
+                "tag": "Task.Annotate"
+            },
+            {
+                "tag": "Task.Zoom"
+            },
+            {
+                "tag": "Infobar.ZoomOut"
+            },
+            {
+                "tag": "Infobar.ZoomIn"
+            },
+            {
+                "tag": "Infobar.ZoomReset"
+            },
+            {
+                "tag": "Infobar.Position"
+            },
+            {
+                "tag": "Infobar.Scale"
+            },
+            {
+                "tag": "Infobar.Rotation"
+            },            
+            {
+                "tag": "Infobar.Loader"
+            },
+            {
+                "tag": "Infobar.Spacer"
+            },
+            {
+                "tag": "Infobar.HomeLink"
+            },
+            {
+                "tag": "Infobar.Help"
+            },
+            {
+                "tag": "Infobar.About"
+            },
+            {
+                "tag": "Toolbar.Identify.Click"
+            },
+            {
+                "tag": "Toolbar.Annotate.Draw"
+            },
+            {
+                "tag": "Toolbar.Print"
+            },
+            {
+                "tag": "Toolbar.Snapshot"
+            },
+            {
+                "tag": "Sidebar.Overview"
+            },
+            {
+                "tag": "Sidebar.Layers"
+            },
+            {
+                "tag": "Sidebar.Edit"
+            },
+            {
+                "tag": "Sidebar.Annotate"
+            },
+            {
+                "tag": "Sidebar.Search"
+            },
+            {
+                "tag": "Sidebar.User"
+            },
+            {
+                "tag": "Decoration.ScaleRuler"
+            },
+            {
+                "tag": "Decoration.Attribution"
+            }
+        ]
+    }
+}
