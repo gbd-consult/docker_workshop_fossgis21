@@ -29,6 +29,18 @@
                 "type": "map"
             },
             {
+                "type": "search"
+            },
+            {
+                "type": "ows",
+                "services":[
+                    {
+                        "type": "wms",
+                        "uid": "mywms"
+                    }
+                ]
+            },
+            {
                 "type": "edit"
             }
         ]
@@ -80,7 +92,11 @@
                                 "type": "html",
                                 "text": "{id}"
                             }
-                        ]
+                        ],
+                        "style": {
+                            "type": "css",
+                            "text": "fill:rgba(250,0,250,1)"
+                        }
                 
                     },
                     {
@@ -110,6 +126,10 @@
                     {
                         "match": "^/project/([a-z][a-z0-9_-]*)(/@.*)?$",
                         "target": "_?cmd=assetHttpGetPath&projectUid=$1&path=project.cx.html"
+                    },
+                    {
+                        "match": "^/wms/([a-z][a-z0-9_-]*)(/@.*)?$",
+                        "target": "_?cmd=owsHttpService&projectUid=$1&uid=mywms"
                     },
                     {
                         "match": "^/asset/([a-z0-9_-]+)/(.+)$",
@@ -180,9 +200,6 @@
                 "tag": "Toolbar.Annotate.Draw"
             },
             {
-                "tag": "Toolbar.Print"
-            },
-            {
                 "tag": "Toolbar.Snapshot"
             },
             {
@@ -198,17 +215,18 @@
                 "tag": "Sidebar.Annotate"
             },
             {
-                "tag": "Sidebar.Search"
-            },
-            {
-                "tag": "Sidebar.User"
-            },
-            {
                 "tag": "Decoration.ScaleRuler"
             },
             {
                 "tag": "Decoration.Attribution"
             }
         ]
+    },
+    "server": {
+        "monitor": {
+            "enabled": true,
+            "frequency": 5
+        }
+
     }
 }
