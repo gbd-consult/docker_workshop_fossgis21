@@ -73,7 +73,15 @@
                                     "role": "all"
                                 }
                             ]
-                        }
+                        },
+                        "templates": [
+                            {
+                                "subject": "feature.title",
+                                "type": "html",
+                                "text": "{id}"
+                            }
+                        ]
+                
                     },
                     {
                         "title": "OpenStreetMap",
