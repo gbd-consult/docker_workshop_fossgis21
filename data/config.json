@@ -41,6 +41,7 @@
             "title": "Test Project",
             "uid": "hello",
             "map": {
+                "crs": "EPSG:25832",
                 "center": [
                     346200,
                     5678000
