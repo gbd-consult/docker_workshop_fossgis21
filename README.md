@@ -10,17 +10,25 @@ Docker ermöglicht die einfache Bereitstellung von Anwendungen über Container. 
 
 ### Einstieg
 Starten der GBD Websuite (WebGIS Suite) über Docker.
-```docker run -p "3333:80" -d --name gws gbdconsult/gws-server:7.0```
+```bash
+docker run -p "3333:80" -d --name gws gbdconsult/gws-server:7.0
+```
 Die Websuite ist erreichbar über `localhost:3333`.
 
 Auflisten alle laufenden Docker-Container:
-```docker ps```
+```bash
+docker ps
+```
 
 Stoppen der Websuite:
-```docker stop gws```
+```bash
+docker stop gws
+```
 
 Löschen des Containers:
-```docker rm gws```
+```bash
+docker rm gws
+```
 
 ### Docker Compose
 Ermöglicht die einfache Konfigurierung unserer (Geodaten)-Infrastruktur in einer (oder mehreren) YAML-Dateien.
