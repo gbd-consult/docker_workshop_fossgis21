@@ -11,7 +11,7 @@ kessler@gbd-consult.de
 Docker ermöglicht die einfache Bereitstellung von Anwendungen über Container. Container beinhalten alle notwendigen Pakete für die Anwendungen. Die Anwendungen laufen virtualisiert und somit isoliert.
 
 ### Einstieg
-Starten der GBD Websuite (WebGIS Suite) über Docker.
+Starten der GBD Websuite (https://gbd-websuite.de/) über Docker.
 ```bash
 docker run -p "3333:80" -d --name gws gbdconsult/gws-server:7.0
 ```
