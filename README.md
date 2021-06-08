@@ -1,8 +1,10 @@
-# Geodateninfrastruktur mit Docker"
+# Geodateninfrastruktur mit Docker
 ## OnlineWorkshop auf der FossGIS '21
 
+```
 Tristan Kessler
 kessler@gbd-consult.de
+```
 
 
 ### Docker
