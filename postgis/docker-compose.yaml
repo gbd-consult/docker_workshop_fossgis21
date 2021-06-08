@@ -5,7 +5,7 @@ services:
       ports:
         - "54321:5432"
       volumes:
-        - "./pg_data:/var/lib/postgresql"
+        - "pg_data:/var/lib/postgresql"
       environment:
         - POSTGRES_DB=docker
         - POSTGRES_USER=docker
@@ -13,3 +13,5 @@ services:
         - ALLOW_IP_RANGE=0.0.0.0/0
         - POSTGRES_MULTIPLE_EXTENSIONS=postgis,hstore,postgis_topology,postgis_raster,pgrouting
       restart: on-failure    
+volumes:
+  - pg_data
