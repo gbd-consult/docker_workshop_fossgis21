@@ -1,5 +1,5 @@
 # Geodateninfrastruktur mit Docker
-## OnlineWorkshop auf der FossGIS '21
+## Workshop auf der FossGIS '23
 
 ```
 Tristan Kessler
